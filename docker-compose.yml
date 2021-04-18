@@ -9,8 +9,8 @@ services:
     image: node-image
     container_name: node-container
     volumes:
-        - ".:/app"
-        - "node_modules:/app/node_modules"
+      - "./app:/app"
+      - "node_modules:/app/node_modules" # ホストマシン側のnode_modulesとコンテナのnode_modulesの中は同期されなくなる
     ports:
       - "8080:3000" # 8080番とnodeコンテナの3000番をつなぐ
     tty: true
