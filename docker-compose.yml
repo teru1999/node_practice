@@ -1,11 +1,18 @@
-version: '3'
+version: '3.3'
+
+volumes:
+  node_modules:
+
 services:
   app:
     build: .
     image: node-image
     container_name: node-container
-    # volumes:
-    #   - $PWD/app:/usr/src/app # app内のソースをnodeコンテナとつなぐ
+    volumes:
+        - ".:/app"
+        - "node_modules:/app/node_modules"
     ports:
       - "8080:3000" # 8080番とnodeコンテナの3000番をつなぐ
     tty: true
+    stdin_open: true
+

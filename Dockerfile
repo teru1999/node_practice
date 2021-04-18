@@ -1,5 +1,5 @@
-FROM node:10.13-alpine
-WORKDIR /usr/src/app
-COPY app/ .
+FROM node:12
+WORKDIR /app
+COPY ./package*.json ./
 RUN npm install
-CMD ["node", "app.js"]
+CMD ["npm", "run", "dev"]

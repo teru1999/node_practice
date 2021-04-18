@@ -2,6 +2,10 @@
 ## 手順
 
 ```
+docker build -t node-image .
+docker run -it -d -p 9000:3000 -v $(pwd)/app:/app node-image 
+
+
 Dockerfileをもとにイメージを作る
 docker-compose build
 
